@@ -1,0 +1,42 @@
+# to do - list
+
+chores = []  # keep the list outside the loop so it doesn't reset
+
+while True:
+    print("\nWelcome to your to-do list")
+    print("1. Add a chore")
+    print("2. View chores")
+    print("3. Remove last item from list")
+    print("4. Leave to-do list")
+
+    option = input("Please enter your option (1-4): ").strip()
+
+    if option == "1":
+        new_chore = input("Please enter chore: ").strip()
+        if new_chore:
+            chores.append(new_chore)
+            print(f"Added: {new_chore}")
+        else:
+            print("No chore entered.")
+    
+    elif option == "2":
+        if chores:
+            print("\nYour chores:")
+            for i, c in enumerate(chores, start=1):
+                print(f"{i}. {c}")
+        else:
+            print("No chores yet!")
+    
+    elif option == "3":
+        if chores:
+            removed = chores.pop()
+            print(f"Removed: {removed}")
+        else:
+            print("Nothing to remove — list is empty.")
+    
+    elif option == "4":
+        print("Leaving to-do list. Bye!")
+        break  # exiting while loop
+    
+    else:
+        print("Invalid choice. Try again.")
